@@ -16,10 +16,9 @@ export const generateToken = (userId, res) => {
     // XSS attack protection
     httpOnly: true,
     // CSRF
-    sameSite: "lax",
+    sameSite: "none",
     // https ?
-    secure: NODE_MODE === "production",
+    secure: true,
     path: "/",
-    domain: "localhost"
   });
 };

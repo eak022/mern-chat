@@ -12,8 +12,10 @@ console.log(process.env.BASE_URL);
 
 const io = new Server(server, {
     cors: {
-    origin: [process.env.BASE_URL],
-  },
+        origin: [process.env.BASE_URL, "https://mern-chat-frontend.vercel.app"],
+        credentials: true,
+        methods: ["GET", "POST"]
+    },
 });
 const userSocketMap = {}; //{userId:socketId} สร้างคู่ id เพื่อเชื่อมต่อให้ถูกคู่
 export function getReceiverSocketId(userId) {
